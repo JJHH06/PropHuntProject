@@ -12,7 +12,7 @@ public class MultiplayerSettings : MonoBehaviour
     //Singlentones
     void Awake()
     {
-        if (MultiplayerSettings.settings = null)
+        if (MultiplayerSettings.settings == null)
             MultiplayerSettings.settings = this;
         else if (MultiplayerSettings.settings != this)
             Destroy(this.gameObject);
