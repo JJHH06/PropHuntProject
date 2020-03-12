@@ -6,6 +6,7 @@ public class MultiplayerSettings : MonoBehaviour
 {
     public static MultiplayerSettings settings;
     public byte maxPlayers = 2;
+    public string Nickname = "Usuario";
 
     public int multiplayerScene = 1;
 

@@ -43,6 +43,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
+        PhotonNetwork.NickName = MultiplayerSettings.settings.Nickname;
         string nombreDelCuarto = createRadomString(5);
         Debug.Log("Tratando de crear un nuevo cuarto llamado: " + nombreDelCuarto);
         RoomOptions settings = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = MultiplayerSettings.settings.maxPlayers }; 
@@ -61,6 +62,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
 
     public void JoinRoom()
     {
+        PhotonNetwork.NickName = MultiplayerSettings.settings.Nickname;
         if (TFroomName) {
             string roomName = TFroomName.text;
             Debug.Log("Tratando de unirse al room: " + roomName);
@@ -89,8 +91,15 @@ public class LobbyController : MonoBehaviourPunCallbacks
         if (datosJugadores)
         {
             foreach (Photon.Realtime.Player jugador in PhotonNetwork.CurrentRoom.Players.Values)
+            {
                 datosJugadores.text += jugador.NickName + "\n";
+                Debug.Log("HAY UN USUARIO EN EL CUARTO CON NICKNAME: " + jugador.NickName + "\n" + jugador.UserId);
+                if (jugador.NickName.Equals(""))
+                    Debug.Log("NO HAY NICKNAME");
+            }
+                
         }
+
             
     }
 
@@ -115,6 +124,12 @@ public class LobbyController : MonoBehaviourPunCallbacks
 
         return new string(nombre);
 
+    }
+
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        UpdateDatos();
     }
 
     public override void OnCreatedRoom()
