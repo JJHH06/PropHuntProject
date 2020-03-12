@@ -138,6 +138,12 @@ public class LobbyController : MonoBehaviourPunCallbacks
         UpdateDatos();
     }
 
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
+    {
+        base.OnPlayerLeftRoom(otherPlayer);
+        UpdateDatos();
+    }
+
     public override void OnCreatedRoom()
     {
         base.OnCreatedRoom();
