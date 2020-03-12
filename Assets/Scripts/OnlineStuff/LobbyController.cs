@@ -48,7 +48,6 @@ public class LobbyController : MonoBehaviourPunCallbacks
         Debug.Log("Tratando de crear un nuevo cuarto llamado: " + nombreDelCuarto);
         RoomOptions settings = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = MultiplayerSettings.settings.maxPlayers }; 
         PhotonNetwork.CreateRoom(nombreDelCuarto, settings);
-        UpdateDatos();
     }
 
 
@@ -81,7 +80,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.InRoom)
         {
             nombreRoom.text = "No se encontró ese cuarto";
-            datosJugadores.text = "";
+            
             return;
         }
 
@@ -90,6 +89,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
 
         if (datosJugadores)
         {
+            datosJugadores.text = "";
             foreach (Photon.Realtime.Player jugador in PhotonNetwork.CurrentRoom.Players.Values)
             {
                 datosJugadores.text += jugador.NickName + "\n";
@@ -112,7 +112,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
 
     private string createRadomString(uint lenght)
     {
-        char[] acceptableRoomLetters = "ABCDEFXWYZ0123456789".ToCharArray();
+        char[] acceptableRoomLetters = "ABCDEFXWYZ123456789".ToCharArray();
         char[] nombre = new char[lenght];
         int numeroDeChar = 0;
 
@@ -129,6 +129,12 @@ public class LobbyController : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
+        UpdateDatos();
+    }
+
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+        base.OnPlayerEnteredRoom(newPlayer);
         UpdateDatos();
     }
 
