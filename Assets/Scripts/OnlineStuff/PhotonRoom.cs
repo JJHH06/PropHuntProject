@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,21 +10,17 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 {
     public static PhotonRoom room;
     private PhotonView PV;
+    Photon.Realtime.Player[] photonPlayers;
 
     public bool isGameLoaded;
     public int currentScene;
-
-    Player[] photonPlayers;
-    public int playersInRoom;
-    public int myNumberInRoom;
-
-    public int playersInGame;
 
     void Start()
     {
         PV = GetComponent<PhotonView>();
     }
 
+    //Singleton de room
     private void Awake()
     {
         if (PhotonRoom.room = null)
@@ -53,64 +50,82 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 
     public override void OnJoinedRoom()
     {
-        base.OnJoinedRoom();
-        Debug.Log("Se logró unir al cuerto");
-        //photonPlayers = PhotonNetwork.PlayerList;
-        playersInRoom = photonPlayers.Length;
-        myNumberInRoom = playersInRoom;
-        PhotonNetwork.NickName = myNumberInRoom.ToString();
+        //Actualizo la lista de jugadores
+        photonPlayers = PhotonNetwork.PlayerList;
 
-        if (playersInRoom == MultiplayerSettings.settings.maxPlayers)
+        //Si ya están todos empiezo
+        if (photonPlayers.Length == MultiplayerSettings.settings.maxPlayers)
             if (PhotonNetwork.IsMasterClient)
-                PhotonNetwork.CurrentRoom.IsOpen = false;
+                StartGame();
     }
 
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
-        base.OnPlayerEnteredRoom(newPlayer);
-        Debug.Log("Un jugador se unió al cuarto.");
-        //photonPlayers = PhotonNetwork.PlayerList;
-        playersInRoom++;
+        //Actualizo la lista de jugadores
+        photonPlayers = PhotonNetwork.PlayerList;
 
-        Debug.Log(playersInRoom + " / " + MultiplayerSettings.settings.maxPlayers);
-
-        if (playersInRoom == MultiplayerSettings.settings.maxPlayers)
+        //Si ya están todos empiezo
+        if (photonPlayers.Length == MultiplayerSettings.settings.maxPlayers)
             if (PhotonNetwork.IsMasterClient)
-                PhotonNetwork.CurrentRoom.IsOpen = false;
+                StartGame();
     }
 
     void StartGame()
     {
-        isGameLoaded = false;
-        if (PhotonNetwork.IsMasterClient)
+        //Si todavía no he empezado el juego y soy el "dueño" de la partida cambio la escena
+        if (!isGameLoaded && PhotonNetwork.IsMasterClient)
         {
+
+            //Nadie más puede entrar al cuarto
             PhotonNetwork.CurrentRoom.IsOpen = false;
+
+
+            //Defino los equipos para cada jugador
+            for (int i = 0; i < photonPlayers.Length; i++)
+            {
+                if (i % 2 == 0)
+                    photonPlayers[i].SetTeam(PunTeams.Team.red);
+                else
+                    photonPlayers[i].SetTeam(PunTeams.Team.blue);
+            }
+
+            //Cargo la escena
             PhotonNetwork.LoadLevel(MultiplayerSettings.settings.multiplayerScene);
+
+            //Digo que la partida ya empezó
+            isGameLoaded = true;
+
         }
 
     }
 
+    // Cuando termino de cargar la escena: 
     void OnSceneFinishedLoading(Scene scene, LoadSceneMode modo)
     {
+        // Guardo la escena por si más adelante quiero confirmar que no estoy en el lobby
         currentScene = scene.buildIndex;
         if (currentScene == MultiplayerSettings.settings.multiplayerScene)
         {
+            // Digo que la partida ya empezó
             isGameLoaded = true;
+            // Mando un mensaje al "dueño" de la partida
             PV.RPC("RPC_LoadedGameScene", RpcTarget.MasterClient);
         }
     }
 
+    // Envia un mensaje a todos los miembros de la partida que creen su jugador
     [PunRPC]
     private void RPC_LoadedGameScene()
     {
-        playersInGame++;
-        if (playersInGame == PhotonNetwork.PlayerList.Length)
+        if (photonPlayers.Length == PhotonNetwork.PlayerList.Length)
             PV.RPC("RPC_CreatePlayer", RpcTarget.All);
     }
 
+
+    // Crear jugador
     [PunRPC]
     private void RPC_CreatePlayer()
     {
-        PhotonNetwork.Instantiate(System.IO.Path.Combine("Prefabs", "Player"), transform.position, Quaternion.identity);
+        PhotonNetwork.Instantiate(System.IO.Path.Combine("Prefabs", "Player"), new Vector3(0, 0, 0), Quaternion.identity);
     }
 }

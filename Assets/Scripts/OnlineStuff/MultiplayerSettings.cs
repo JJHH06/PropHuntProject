@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MultiplayerSettings : MonoBehaviour
 {
+    // La clase solo se encarga de guardar unos valores que me son útiles
+
     public static MultiplayerSettings settings;
     public byte maxPlayers = 2;
     public string Nickname = "Usuario";
