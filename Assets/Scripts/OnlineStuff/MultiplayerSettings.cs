@@ -23,5 +23,4 @@ public class MultiplayerSettings : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-
 }
