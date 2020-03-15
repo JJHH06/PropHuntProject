@@ -15,6 +15,9 @@ TagManager:
   - Props
   - ObjCar
   - ObjVending
+  - SecondCamera
+  - BulletSpawn
+  - Weapon
   layers:
   - Default
   - TransparentFX
