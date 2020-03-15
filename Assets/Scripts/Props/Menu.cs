@@ -27,9 +27,16 @@ public class Menu : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = estado;
+
+            if (camara)
+            {
+                (camara.GetComponent("FreeLookCam") as MonoBehaviour).enabled = !estado;
+            }
+            if (thirdPerson)
+            {
+                (thirdPerson.GetComponent("vThirdPersonInput") as MonoBehaviour).enabled = !estado;
+            }
             
-            (camara.GetComponent("FreeLookCam") as MonoBehaviour).enabled = !estado;
-            (thirdPerson.GetComponent("vThirdPersonInput") as MonoBehaviour).enabled = !estado;
 
 
         }
