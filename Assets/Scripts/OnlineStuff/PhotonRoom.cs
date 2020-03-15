@@ -11,6 +11,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     public static PhotonRoom room;
     private PhotonView PV;
     Photon.Realtime.Player[] photonPlayers;
+    private int PlayersLoaded = 0;
 
     public bool isGameLoaded;
     public int currentScene;
@@ -117,7 +118,8 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     [PunRPC]
     private void RPC_LoadedGameScene()
     {
-        if (photonPlayers.Length == PhotonNetwork.PlayerList.Length)
+        
+        if (++PlayersLoaded == photonPlayers.Length && photonPlayers.Length == PhotonNetwork.PlayerList.Length)
             PV.RPC("RPC_CreatePlayer", RpcTarget.All);
     }
 
