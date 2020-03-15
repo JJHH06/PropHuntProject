@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 
 namespace Invector.vCharacterController
 {
@@ -21,12 +22,25 @@ namespace Invector.vCharacterController
         [HideInInspector] public vThirdPersonCamera tpCamera;
         [HideInInspector] public Camera cameraMain;
 
+        public GameObject Detachables;
+
         #endregion
 
         protected virtual void Start()
         {
-            InitilizeController();
-            InitializeTpCamera();
+            if (!GetComponent<PhotonView>().IsMine)
+            {
+                Destroy(Detachables);
+                Destroy(this);
+            }
+            else
+            {
+
+                Detachables.GetComponent<Transform>().parent = null;
+
+                InitilizeController();
+                InitializeTpCamera();
+            }
         }
 
         protected virtual void FixedUpdate()
