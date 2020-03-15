@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class CambioO : MonoBehaviour
 {
-    // Start is called before the first frame update
-    // Start is called before the first frame update
     public float distancia = 4f;
     public GameObject chair;
     public GameObject fire;
@@ -20,8 +18,6 @@ public class CambioO : MonoBehaviour
         chair.SetActive(false);
         fire.SetActive(false);
         parkBench.SetActive(false);
-
-
     }
 
     // Update is called once per frame
@@ -35,41 +31,39 @@ public class CambioO : MonoBehaviour
         {
             if (Physics.Raycast(myRay, out hitInfo, distancia))
             {
-                if (hitInfo.collider.gameObject.CompareTag("ObjFireExtin") || hitInfo.collider.gameObject.CompareTag("ObjChair") || hitInfo.collider.gameObject.CompareTag("ObjParkBench"))
+                
+                if (hitInfo.collider.gameObject.CompareTag("ObjFireExtin"))
                 {
-                    if (hitInfo.collider.gameObject.CompareTag("ObjFireExtin"))
-                    {
-                        fire.SetActive(true);
-                        chair.SetActive(false);
-                        parkBench.SetActive(false);
+                    fire.SetActive(true);
+                    chair.SetActive(false);
+                    parkBench.SetActive(false);
 
-                        text.text = "Objeto: Fire Extinguisher";
-                    }
-                    else if (hitInfo.collider.gameObject.CompareTag("ObjChair"))
-                    {
-                        fire.SetActive(false);
-                        chair.SetActive(true);
-                        parkBench.SetActive(false);
-
-                        text.text = "Objeto: Chair";
-                    }
-                    else if (hitInfo.collider.gameObject.CompareTag("ObjParkBench"))
-                    {
-                        fire.SetActive(false);
-                        chair.SetActive(false);
-                        parkBench.SetActive(true);
-
-                        text.text = "Objeto: Park Bench";
-                    }
-
-
-
-
-
-
-
-
+                    text.text = "Objeto: Fire Extinguisher";
                 }
+                else if (hitInfo.collider.gameObject.CompareTag("ObjChair"))
+                {
+                    fire.SetActive(false);
+                    chair.SetActive(true);
+                    parkBench.SetActive(false);
+
+                    text.text = "Objeto: Chair";
+                }
+                else if (hitInfo.collider.gameObject.CompareTag("ObjParkBench"))
+                {
+                    fire.SetActive(false);
+                    chair.SetActive(false);
+                    parkBench.SetActive(true);
+
+                    text.text = "Objeto: Park Bench";
+                    }
+
+
+
+
+
+
+
+
 
             }
 
