@@ -8,6 +8,13 @@ TagManager:
   - ObjFireExtin
   - Bullet
   - ObjParkBench
+  - ObjPlant
+  - ObjBigTable
+  - ObjComputer
+  - ObjLamp
+  - Props
+  - ObjCar
+  - ObjVending
   layers:
   - Default
   - TransparentFX
