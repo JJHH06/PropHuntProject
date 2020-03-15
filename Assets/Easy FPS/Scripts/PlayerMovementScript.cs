@@ -32,6 +32,7 @@ public class PlayerMovementScript : MonoBehaviour {
 		cameraMain = transform.Find("Main Camera").transform;
 		bulletSpawn = cameraMain.Find ("BulletSpawn").transform;
 		ignoreLayer = 1 << LayerMask.NameToLayer ("Player");
+		Cursor.lockState = CursorLockMode.Locked;
 
 	}
 	private Vector3 slowdownV;
