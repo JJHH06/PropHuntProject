@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementScript : MonoBehaviour {
 	Rigidbody rb;
-
+	public GameObject CamaraDestruir;
 	[Tooltip("Current players speed")]
 	public float currentSpeed;
 	[Tooltip("Assign players camera here")]
@@ -19,6 +20,14 @@ public class PlayerMovementScript : MonoBehaviour {
 	 * And grabbing the mainCamera from Players child transform.
 	 */
 	void Awake(){
+		if (!GetComponent<PhotonView>().IsMine)
+		{
+			Destroy(GetComponent<MouseLookScript>());
+			Destroy(GetComponent<GunInventory>());
+			Destroy(CamaraDestruir);
+			Destroy(this);
+		}
+
 		rb = GetComponent<Rigidbody>();
 		cameraMain = transform.Find("Main Camera").transform;
 		bulletSpawn = cameraMain.Find ("BulletSpawn").transform;
