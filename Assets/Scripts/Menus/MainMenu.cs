@@ -13,6 +13,9 @@ public class MainMenu : MonoBehaviour
     public GameObject PRoomJoining;
     public GameObject PEnPartida;
     public GameObject PSetNickName;
+    public GameObject PPropController;
+    public GameObject PHunterController;
+    public GameObject PInstructions;
     public InputField TfSetNickName;
 
 
@@ -24,6 +27,23 @@ public class MainMenu : MonoBehaviour
         PNewGame.SetActive(false);
         PRoomJoining.SetActive(false);
         PSetNickName.SetActive(false);
+        PPropController.SetActive(false);
+        PHunterController.SetActive(false);
+        PInstructions.SetActive(false);
+
+    }
+
+    public void toPInstructions()
+    {
+        title.SetActive(true);
+        PInicio.SetActive(false);
+        PEnPartida.SetActive(false);
+        PNewGame.SetActive(false);
+        PRoomJoining.SetActive(false);
+        PSetNickName.SetActive(false);
+        PPropController.SetActive(false);
+        PHunterController.SetActive(false);
+        PInstructions.SetActive(true);
 
     }
 
@@ -45,6 +65,32 @@ public class MainMenu : MonoBehaviour
         PNewGame.SetActive(false);
         PRoomJoining.SetActive(true);
         PSetNickName.SetActive(false);
+    }
+
+    public void toPPropController()
+    {
+        
+        PInicio.SetActive(false);
+        PEnPartida.SetActive(false);
+        PNewGame.SetActive(false);
+        PRoomJoining.SetActive(false);
+        PSetNickName.SetActive(false);
+        PPropController.SetActive(true);
+        PHunterController.SetActive(false);
+        PInstructions.SetActive(false);
+    }
+
+    public void toPHunterController()
+    {
+        
+        PInicio.SetActive(false);
+        PEnPartida.SetActive(false);
+        PNewGame.SetActive(false);
+        PRoomJoining.SetActive(false);
+        PSetNickName.SetActive(false);
+        PPropController.SetActive(false);
+        PHunterController.SetActive(true);
+        PInstructions.SetActive(false);
     }
 
     public void toPEnPartida()
