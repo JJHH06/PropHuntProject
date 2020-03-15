@@ -5,11 +5,28 @@ using UnityEngine.UI;
 
 public class CambioO : MonoBehaviour
 {
+    // Start is called before the first frame update
+    // Start is called before the first frame update
     public float distancia = 4f;
     public GameObject chair;
     public GameObject fire;
     public GameObject parkBench;
+    public GameObject thirdCaracter;
+    public GameObject plant;
+    public GameObject lamp;
+    public GameObject computer;
+    public GameObject car;
+    public GameObject vending;
+    private CapsuleCollider playerCollider;
+
+
+
+
+
+
+
     public Text text;
+    public bool isNotProp = true;
 
 
     RaycastHit hitInfo;
@@ -18,8 +35,27 @@ public class CambioO : MonoBehaviour
         chair.SetActive(false);
         fire.SetActive(false);
         parkBench.SetActive(false);
+        plant.SetActive(false);
+        lamp.SetActive(false);
+        computer.SetActive(false);
+        car.SetActive(false);
+        vending.SetActive(false);
+
+        playerCollider = GetComponent<CapsuleCollider>();
+
+
+
+
+
+
+
+        thirdCaracter.SetActive(true);
+
+
+
     }
 
+    // Update is called once per frame
     // Update is called once per frame
     [System.Obsolete]
     void FixedUpdate()
@@ -31,30 +67,151 @@ public class CambioO : MonoBehaviour
         {
             if (Physics.Raycast(myRay, out hitInfo, distancia))
             {
-                
-                if (hitInfo.collider.gameObject.CompareTag("ObjFireExtin"))
-                {
-                    fire.SetActive(true);
-                    chair.SetActive(false);
-                    parkBench.SetActive(false);
 
-                    text.text = "Objeto: Fire Extinguisher";
-                }
-                else if (hitInfo.collider.gameObject.CompareTag("ObjChair"))
+                if (hitInfo.collider.gameObject.CompareTag("ObjFireExtin") || hitInfo.collider.gameObject.CompareTag("ObjChair") || hitInfo.collider.gameObject.CompareTag("ObjParkBench") || hitInfo.collider.gameObject.CompareTag("ObjPlant") || hitInfo.collider.gameObject.CompareTag("ObjLamp") || hitInfo.collider.gameObject.CompareTag("ObjComputer") || hitInfo.collider.gameObject.CompareTag("ObjCar") || hitInfo.collider.gameObject.CompareTag("ObjVending"))
                 {
-                    fire.SetActive(false);
-                    chair.SetActive(true);
-                    parkBench.SetActive(false);
+                    if (isNotProp)
+                    {
+                        isNotProp = false;
+                        thirdCaracter.SetActive(false);
+                        playerCollider.radius = 0.1f;
+                        playerCollider.height = 0.2f;
+                        playerCollider.center = new Vector3(0, 0, 0);
 
-                    text.text = "Objeto: Chair";
-                }
-                else if (hitInfo.collider.gameObject.CompareTag("ObjParkBench"))
-                {
-                    fire.SetActive(false);
-                    chair.SetActive(false);
-                    parkBench.SetActive(true);
 
-                    text.text = "Objeto: Park Bench";
+
+                    }
+                    if (hitInfo.collider.gameObject.CompareTag("ObjFireExtin"))
+                    {
+                        fire.SetActive(true);
+                        chair.SetActive(false);
+                        parkBench.SetActive(false);
+                        plant.SetActive(false);
+                        lamp.SetActive(false);
+                        computer.SetActive(false);
+                        car.SetActive(false);
+                        vending.SetActive(false);
+
+
+
+                        text.text = "Objeto: Fire Extinguisher";
+                    }
+                    else if (hitInfo.collider.gameObject.CompareTag("ObjPlant"))
+                    {
+                        fire.SetActive(false);
+                        chair.SetActive(false);
+                        parkBench.SetActive(false);
+                        lamp.SetActive(false);
+                        plant.SetActive(true);
+                        computer.SetActive(false);
+                        car.SetActive(false);
+                        vending.SetActive(false);
+
+
+
+                        text.text = "Objeto: Planta";
+                    }
+                    else if (hitInfo.collider.gameObject.CompareTag("ObjChair"))
+                    {
+                        fire.SetActive(false);
+                        chair.SetActive(true);
+                        parkBench.SetActive(false);
+                        plant.SetActive(false);
+                        lamp.SetActive(false);
+                        computer.SetActive(false);
+                        car.SetActive(false);
+                        vending.SetActive(false);
+
+
+
+                        text.text = "Objeto: Chair";
+                    }
+                    else if (hitInfo.collider.gameObject.CompareTag("ObjParkBench"))
+                    {
+                        fire.SetActive(false);
+                        chair.SetActive(false);
+                        parkBench.SetActive(true);
+                        plant.SetActive(false);
+                        lamp.SetActive(false);
+                        computer.SetActive(false);
+                        car.SetActive(false);
+                        vending.SetActive(false);
+
+
+
+                        text.text = "Objeto: Park Bench";
+                    }
+
+                    else if (hitInfo.collider.gameObject.CompareTag("ObjLamp"))
+                    {
+                        fire.SetActive(false);
+                        chair.SetActive(false);
+                        parkBench.SetActive(false);
+                        plant.SetActive(false);
+                        lamp.SetActive(true);
+                        computer.SetActive(false);
+                        car.SetActive(false);
+                        vending.SetActive(false);
+
+
+
+                        text.text = "Objeto: Lampara";
+                    }
+
+                    else if (hitInfo.collider.gameObject.CompareTag("ObjComputer"))
+                    {
+                        fire.SetActive(false);
+                        chair.SetActive(false);
+                        parkBench.SetActive(false);
+                        plant.SetActive(false);
+                        lamp.SetActive(false);
+                        computer.SetActive(true);
+                        car.SetActive(false);
+                        vending.SetActive(false);
+
+
+
+
+
+                        text.text = "Objeto: Computadora";
+                    }
+
+                    else if (hitInfo.collider.gameObject.CompareTag("ObjCar"))
+                    {
+                        fire.SetActive(false);
+                        chair.SetActive(false);
+                        parkBench.SetActive(false);
+                        plant.SetActive(false);
+                        lamp.SetActive(false);
+                        computer.SetActive(false);
+                        car.SetActive(true);
+                        vending.SetActive(false);
+
+
+
+
+
+
+                        text.text = "Objeto: Mini Van";
+                    }
+
+                    else if (hitInfo.collider.gameObject.CompareTag("ObjVending"))
+                    {
+                        fire.SetActive(false);
+                        chair.SetActive(false);
+                        parkBench.SetActive(false);
+                        plant.SetActive(false);
+                        lamp.SetActive(false);
+                        computer.SetActive(false);
+                        car.SetActive(false);
+                        vending.SetActive(true);
+
+
+
+
+
+
+                        text.text = "Objeto: Vending Machine";
                     }
 
 
@@ -64,6 +221,7 @@ public class CambioO : MonoBehaviour
 
 
 
+                }
 
             }
 
