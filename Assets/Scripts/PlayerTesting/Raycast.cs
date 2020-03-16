@@ -21,6 +21,8 @@ public class Raycast : MonoBehaviour
             if (hit.transform.tag == "Props")
             {
                 hit.transform.SendMessage("HitByRay");
+                Debug.Log("Funciona!!!");
+
             }
         }
     }
