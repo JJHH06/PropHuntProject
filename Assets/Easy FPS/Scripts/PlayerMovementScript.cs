@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.EventSystems;
+
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementScript : MonoBehaviour {
 	Rigidbody rb;
+	public Text contador;
 	public GameObject CamaraDestruir;
 	[Tooltip("Current players speed")]
 	public float currentSpeed;
@@ -19,6 +23,21 @@ public class PlayerMovementScript : MonoBehaviour {
 	 * Getting the Players rigidbody component.
 	 * And grabbing the mainCamera from Players child transform.
 	 */
+
+	IEnumerator timer()
+	{
+		int tiempo = 60;
+		while (tiempo > 0) {
+			tiempo = tiempo - 1;
+			yield return new WaitForSeconds(1);
+			contador.text = tiempo.ToString();
+		}
+
+		Destroy(gameObject);
+	}
+
+
+
 	void Awake(){
 
 		this.gameObject.SetActive(true);
@@ -31,6 +50,7 @@ public class PlayerMovementScript : MonoBehaviour {
 			Destroy(this);
 		}
 
+		StartCoroutine(timer());
 		rb = GetComponent<Rigidbody>();
 		cameraMain = transform.Find("Main Camera").transform;
 		bulletSpawn = cameraMain.Find ("BulletSpawn").transform;
