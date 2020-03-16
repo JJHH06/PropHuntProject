@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 2507745223297033782}
   - component: {fileID: 2516235246583221796}
   - component: {fileID: 2473209325705930170}
+  - component: {fileID: 4827816852699824089}
   m_Layer: 0
   m_Name: Car
   m_TagString: Props
@@ -419,6 +420,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9349992, y: 0.7021495, z: 0.810038}
   m_Center: {x: 0.26249996, y: 0, z: 0.41998118}
+--- !u!114 &4827816852699824089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2503528769456195078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &2656914258655353410
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +445,7 @@ GameObject:
   - component: {fileID: 2640497021900083032}
   - component: {fileID: 2632791887025843818}
   - component: {fileID: 2610927807482565808}
+  - component: {fileID: 2881283604605981181}
   m_Layer: 0
   m_Name: Vending
   m_TagString: Props
@@ -511,6 +526,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0000005, y: 1.5095764, z: 3.500002}
   m_Center: {x: -0.00000390886, y: -0.004786109, z: 1.7500008}
+--- !u!114 &2881283604605981181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656914258655353410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &2741225621735118648
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 2636192935216913071}
   camara: {fileID: 6280373855513566862}
-  thirdPerson: {fileID: 0}
 --- !u!1 &2785696140720983347
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +845,7 @@ GameObject:
   - component: {fileID: 4839243141289414759}
   - component: {fileID: 4828974531868704953}
   - component: {fileID: 4880363332915689193}
+  - component: {fileID: 8889641239578434672}
   m_Layer: 0
   m_Name: Pot
   m_TagString: Props
@@ -898,6 +926,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1771522, y: 2.1225665, z: 1.6250017}
   m_Center: {x: -0.00000019755518, y: 0.05528771, z: 0.81250054}
+--- !u!114 &8889641239578434672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852625176379198165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &4906283040812306694
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,6 +1028,7 @@ GameObject:
   - component: {fileID: 5639688114734116054}
   - component: {fileID: 5647547205385039830}
   - component: {fileID: 5751230353360264308}
+  - component: {fileID: 9079765841128980537}
   m_Layer: 0
   m_Name: FireExtinguisher
   m_TagString: Props
@@ -1068,6 +1110,19 @@ CapsuleCollider:
   m_Height: 2.35
   m_Direction: 2
   m_Center: {x: 0.03423789, y: -0.00000011920929, z: 0.14852965}
+--- !u!114 &9079765841128980537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5634152485090337352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &6280373855265128901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,6 +1289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6280373855500352200}
   - component: {fileID: 1464315447336811063}
+  - component: {fileID: 2609265371245948433}
   m_Layer: 0
   m_Name: Computer (1)
   m_TagString: Props
@@ -1271,6 +1327,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5805893, y: 0.6050672, z: 0.67966616}
   m_Center: {x: -0.022053413, y: -0.17623813, z: 0.16016686}
+--- !u!114 &2609265371245948433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280373855500352207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &6280373855513566862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1474,7 @@ GameObject:
   - component: {fileID: 6280373855921522639}
   - component: {fileID: 6280373855921522638}
   - component: {fileID: 6280373855921522637}
+  - component: {fileID: 6895664654328198914}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Props
@@ -1485,6 +1555,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.769686, y: 0.76185113, z: 1.0752282}
   m_Center: {x: 0, y: 0.007874506, z: 0.5376141}
+--- !u!114 &6895664654328198914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280373855921522643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &6280373856159832739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3550,6 +3633,7 @@ GameObject:
   - component: {fileID: 6280373856586056187}
   - component: {fileID: 6280373856586056180}
   - component: {fileID: 6280373856586056181}
+  - component: {fileID: 1961054469653210204}
   m_Layer: 0
   m_Name: PropPlayer
   m_TagString: Player
@@ -3799,6 +3883,19 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1961054469653210204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032324569012378764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69ad20cb7e2dc64d8c4e2da321764ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VidaProp: 10
 --- !u!1 &7032324569018764589
 GameObject:
   m_ObjectHideFlags: 0
@@ -5323,6 +5420,7 @@ GameObject:
   - component: {fileID: 7363561630182825901}
   - component: {fileID: 7389140459472750387}
   - component: {fileID: 7387565883368440023}
+  - component: {fileID: 8465585242662058903}
   m_Layer: 0
   m_Name: ParkBench
   m_TagString: Props
@@ -5416,6 +5514,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.125, y: 1.2007214, z: 0.97115445}
   m_Center: {x: 0, y: -0.037860572, z: 0.4855771}
+--- !u!114 &8465585242662058903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7378698082367477133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &7484514479625675051
 GameObject:
   m_ObjectHideFlags: 0
@@ -5428,6 +5539,7 @@ GameObject:
   - component: {fileID: 7470418172958867477}
   - component: {fileID: 7461959275090868203}
   - component: {fileID: 7435639499545946091}
+  - component: {fileID: 7022286458667513653}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Props
@@ -5508,6 +5620,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3366363, y: 1.3345754, z: 1.8866956}
   m_Center: {x: -0.000003748139, y: -0.077772245, z: -0.09784376}
+--- !u!114 &7022286458667513653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7484514479625675051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &7537229327969148201
 GameObject:
   m_ObjectHideFlags: 0
