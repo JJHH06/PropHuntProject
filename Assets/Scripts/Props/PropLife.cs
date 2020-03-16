@@ -30,6 +30,7 @@ public class PropLife : MonoBehaviourPunCallbacks
                 {
                     GetComponent<PhotonView>().RPC("Hit", RpcTarget.Others);
                     Debug.Log("Le dí");
+                    hit.collider.GetComponent<LP>().getHit();
 
                 }
             }

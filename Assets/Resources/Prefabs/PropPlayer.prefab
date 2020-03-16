@@ -433,7 +433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &2656914258655353410
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &2741225621735118648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &4906283040812306694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,7 +1233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &6280373855265128901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,7 +1449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &6280373855513566862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,7 +1676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &6280373856159832739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,6 +3742,7 @@ GameObject:
   - component: {fileID: 6280373856586056180}
   - component: {fileID: 6280373856586056181}
   - component: {fileID: 1961054469653210204}
+  - component: {fileID: -6047317958946973540}
   m_Layer: 0
   m_Name: PropPlayer
   m_TagString: Props
@@ -4009,7 +4004,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69ad20cb7e2dc64d8c4e2da321764ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VidaProp: 10
+  life: 10
+--- !u!114 &-6047317958946973540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032324569012378764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd44314e372915429bc76dc19a476e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 10
 --- !u!1 &7032324569018764589
 GameObject:
   m_ObjectHideFlags: 0
@@ -5651,7 +5659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &7484514479625675051
 GameObject:
   m_ObjectHideFlags: 0
@@ -5757,7 +5764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3075ec0d93ff62449b8b82a66729bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PropFather: {fileID: 7032324569012378764}
 --- !u!1 &7537229327969148201
 GameObject:
   m_ObjectHideFlags: 0
