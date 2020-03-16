@@ -3803,7 +3803,7 @@ MonoBehaviour:
   computer: {fileID: 6280373855500352207}
   car: {fileID: 2503528769456195078}
   vending: {fileID: 2656914258655353410}
-  text: {fileID: 0}
+  text: {fileID: 269745931413161615}
   isNotProp: 1
 --- !u!114 &6280373856586056187
 MonoBehaviour:
