@@ -132,8 +132,8 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     }
 
     [PunRPC]
-    private void Hit()
+    void Hit()
     {
-
+        Debug.Log("PhotonRoom");
     }
 }

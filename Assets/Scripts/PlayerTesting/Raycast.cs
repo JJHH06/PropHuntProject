@@ -32,5 +32,6 @@ public class Raycast : MonoBehaviourPunCallbacks
     [PunRPC]
     void Hit()
     {
+        Debug.Log("Raycast");
     }
 }

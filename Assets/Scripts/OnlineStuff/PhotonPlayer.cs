@@ -30,6 +30,7 @@ public class PhotonPlayer : MonoBehaviour
     [PunRPC]
     void Hit()
     {
+        Debug.Log("PhotonPlayer");
     }
 
 }
