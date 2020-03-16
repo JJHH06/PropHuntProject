@@ -10,7 +10,7 @@ public class TempBarrierManager : MonoBehaviour
     private void Start()
     {
         if(barrera)
-         barrera.SetActive(false);
+         barrera.SetActive(true);
     }
     private void FixedUpdate()
     {
