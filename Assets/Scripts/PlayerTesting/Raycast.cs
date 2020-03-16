@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Raycast : MonoBehaviourPunCallbacks
+public class Shooting : MonoBehaviourPunCallbacks
 {
     RaycastHit hit;
+    public int life;
+    bool isHunter;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Screen.lockCursor = true;
+        life = 10;
+        isHunter = GetComponent<PhotonView>();
     }
 
     void Update()
     {
-        
+        if (!isHunter)
+            return;
+
         Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButtonDown(0))
         {
@@ -33,13 +39,12 @@ public class Raycast : MonoBehaviourPunCallbacks
     [PunRPC]
     void Hit()
     {
-        try
+        if (!isHunter)
         {
-            GetComponent<PropLife>().Hit();
+            life--;
+            if (life >= 0)
+                Destroy(gameObject);
         }
-        catch
-        {
 
-        }
     }
 }

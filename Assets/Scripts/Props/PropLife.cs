@@ -2,40 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 
 public class PropLife : MonoBehaviourPunCallbacks
 {
-    public int VidaProp = 10;
-    // Start is called before the first frame update
-    void Start()
+    RaycastHit hit;
+    public int life = 10;
+    bool isHunter;
+    private void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
+        Screen.lockCursor = true;
+        isHunter = (int)PhotonNetwork.LocalPlayer.GetTeam() == (int)PunTeams.Team.red;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (VidaProp <= 0)
-        {
-            //Aqui iria lo que pasa cuando gane el hunter
-            Destroy(gameObject);
+        if (!isHunter)
+            return;
 
+        Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Physics.Raycast(myRay, out hit, 40f))
+            {
+                if (hit.transform.tag == "Props")
+                {
+                    GetComponent<PhotonView>().RPC("Hit", RpcTarget.Others);
+                    Debug.Log("Le dí");
+
+                }
+            }
         }
     }
-    private void OnCollisionEnter(Collision collision)
+
+    [PunRPC]
+    void Hit()
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (!isHunter)
         {
-            VidaProp--;
+            life--;
+            if (life >= 0)
+                Destroy(gameObject);
         }
 
     }
-
-    public void Hit()
-    {
-        VidaProp--;
-        Debug.Log("Me dio");
-    }
-
-
 }

@@ -31,6 +31,8 @@ namespace Invector.vCharacterController
             if (!GetComponent<PhotonView>().IsMine)
             {
                 Destroy(Detachables);
+                //Destroy(GetComponent<PropLife>());
+
                 Destroy(GetComponent<vThirdPersonController>());
                 Destroy(this);
             }
