@@ -7,7 +7,7 @@ using Photon.Pun.UtilityScripts;
 public class PropLife : MonoBehaviourPunCallbacks
 {
     RaycastHit hit;
-    public int life = 10;
+    public int life = 5;
     bool isHunter;
     private void Start()
     {
