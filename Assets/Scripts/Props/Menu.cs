@@ -9,7 +9,7 @@ public class Menu : MonoBehaviour
     public Canvas canvas;
     private bool estado;
     public GameObject camara;
-    public GameObject thirdPerson;
+    
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class Menu : MonoBehaviour
         {
             estado = !estado;
             canvas.enabled = estado;
-
+      
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = estado;
 
@@ -32,10 +32,7 @@ public class Menu : MonoBehaviour
             {
                 (camara.GetComponent("FreeLookCam") as MonoBehaviour).enabled = !estado;
             }
-            if (thirdPerson)
-            {
-                (thirdPerson.GetComponent("vThirdPersonInput") as MonoBehaviour).enabled = !estado;
-            }
+            
             
 
 
