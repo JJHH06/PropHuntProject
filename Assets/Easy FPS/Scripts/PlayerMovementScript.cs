@@ -20,6 +20,9 @@ public class PlayerMovementScript : MonoBehaviour {
 	 * And grabbing the mainCamera from Players child transform.
 	 */
 	void Awake(){
+
+		this.gameObject.SetActive(true);
+
 		if (!GetComponent<PhotonView>().IsMine)
 		{
 			Destroy(GetComponent<MouseLookScript>());
