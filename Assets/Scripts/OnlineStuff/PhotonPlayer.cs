@@ -27,4 +27,9 @@ public class PhotonPlayer : MonoBehaviour
         }
     }
 
+    [PunRPC]
+    void Hit()
+    {
+    }
+
 }

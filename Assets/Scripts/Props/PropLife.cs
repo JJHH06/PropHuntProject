@@ -32,9 +32,10 @@ public class PropLife : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    private void Hit()
+    void Hit()
     {
         VidaProp--;
+        Debug.Log("Me dio");
     }
 
 
