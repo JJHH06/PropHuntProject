@@ -6,6 +6,11 @@ using Photon.Pun;
 public class Raycast : MonoBehaviourPunCallbacks
 {
     RaycastHit hit;
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     void Update()
     {
         
