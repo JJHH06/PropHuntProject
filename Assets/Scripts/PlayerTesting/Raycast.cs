@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Raycast : MonoBehaviour
 {
@@ -22,8 +23,8 @@ public class Raycast : MonoBehaviour
             {
                 if (hit.transform.tag == "Props")
                 {
-                    hit.transform.SendMessage("HitByRay");
-                    Debug.Log("Funciona!!!");
+                    GetComponent<PhotonView>().RPC("Hit", RpcTarget.Others);
+                    Debug.Log("Le dí");
 
                 }
             }
