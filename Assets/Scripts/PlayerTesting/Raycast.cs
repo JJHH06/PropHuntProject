@@ -9,6 +9,7 @@ public class Raycast : MonoBehaviourPunCallbacks
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Screen.lockCursor = true;
     }
 
     void Update()
@@ -32,6 +33,13 @@ public class Raycast : MonoBehaviourPunCallbacks
     [PunRPC]
     void Hit()
     {
-        Debug.Log("Raycast");
+        try
+        {
+            GetComponent<PropLife>().Hit();
+        }
+        catch
+        {
+
+        }
     }
 }
