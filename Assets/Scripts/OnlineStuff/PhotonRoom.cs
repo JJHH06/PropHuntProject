@@ -130,4 +130,10 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     {
         PhotonNetwork.Instantiate(System.IO.Path.Combine("Prefabs", "Player"), new Vector3(0, 0, 0), Quaternion.identity);
     }
+
+    [PunRPC]
+    private void Hit()
+    {
+
+    }
 }

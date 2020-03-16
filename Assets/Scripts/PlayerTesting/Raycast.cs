@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Raycast : MonoBehaviour
+public class Raycast : MonoBehaviourPunCallbacks
 {
     RaycastHit hit;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -29,5 +27,10 @@ public class Raycast : MonoBehaviour
                 }
             }
         }
+    }
+
+    [PunRPC]
+    void Hit()
+    {
     }
 }
