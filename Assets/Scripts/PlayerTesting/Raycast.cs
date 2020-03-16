@@ -16,13 +16,16 @@ public class Raycast : MonoBehaviour
     {
         
         Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(myRay, out hit,40f))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (hit.transform.tag == "Props")
+            if (Physics.Raycast(myRay, out hit, 40f))
             {
-                hit.transform.SendMessage("HitByRay");
-                Debug.Log("Funciona!!!");
+                if (hit.transform.tag == "Props")
+                {
+                    hit.transform.SendMessage("HitByRay");
+                    Debug.Log("Funciona!!!");
 
+                }
             }
         }
     }
