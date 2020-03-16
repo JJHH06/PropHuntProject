@@ -27,6 +27,7 @@ public class Menu : MonoBehaviour
       
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = estado;
+            
 
             if (camara)
             {

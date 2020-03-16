@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementScript : MonoBehaviour {
 	Rigidbody rb;
-	public Text contador;
+	//public Text contador;
 	public GameObject CamaraDestruir;
 	[Tooltip("Current players speed")]
 	public float currentSpeed;
@@ -23,7 +23,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	 * Getting the Players rigidbody component.
 	 * And grabbing the mainCamera from Players child transform.
 	 */
-
+	 /**
 	IEnumerator timer()
 	{
 		int tiempo = 60;
@@ -35,7 +35,7 @@ public class PlayerMovementScript : MonoBehaviour {
 
 		Destroy(gameObject);
 	}
-
+**/
 
 
 	void Awake(){
@@ -50,7 +50,7 @@ public class PlayerMovementScript : MonoBehaviour {
 			Destroy(this);
 		}
 
-		StartCoroutine(timer());
+		//StartCoroutine(timer());
 		rb = GetComponent<Rigidbody>();
 		cameraMain = transform.Find("Main Camera").transform;
 		bulletSpawn = cameraMain.Find ("BulletSpawn").transform;
