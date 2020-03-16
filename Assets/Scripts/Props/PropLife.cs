@@ -43,7 +43,7 @@ public class PropLife : MonoBehaviourPunCallbacks
         if (!isHunter)
         {
             life--;
-            if (life >= 0)
+            if (life <= 0)
                 Destroy(gameObject);
         }
 
