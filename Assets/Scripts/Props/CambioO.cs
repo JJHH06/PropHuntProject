@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class CambioO : MonoBehaviour
+public class CambioO : MonoBehaviour, IPunObservable
 {
     // Start is called before the first frame update
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class CambioO : MonoBehaviour
 
 
 
-
+    private bool isMine;
 
 
 
@@ -45,7 +46,7 @@ public class CambioO : MonoBehaviour
 
 
 
-
+        isMine = GetComponent<PhotonView>().IsMine;
 
 
 
@@ -60,6 +61,9 @@ public class CambioO : MonoBehaviour
     [System.Obsolete]
     void FixedUpdate()
     {
+        if (!isMine)
+            return;
+
         Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 
@@ -233,4 +237,41 @@ public class CambioO : MonoBehaviour
 
     }
 
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            bool[] estados = { 
+                chair.activeInHierarchy, 
+                fire.activeInHierarchy, 
+                parkBench.activeInHierarchy, 
+                plant.activeInHierarchy, 
+                lamp.activeInHierarchy, 
+                computer.activeInHierarchy,
+                car.activeInHierarchy, 
+                vending.activeInHierarchy,
+                thirdCaracter.activeInHierarchy
+            
+            };
+
+            stream.SendNext(estados);
+
+        } else if (stream.IsReading)
+        {
+            bool[] estados = (bool[])stream.ReceiveNext();
+
+            
+            chair.SetActive(estados[0]);
+            fire.SetActive(estados[1]);
+            parkBench.SetActive(estados[2]);
+            plant.SetActive(estados[3]);
+            lamp.SetActive(estados[4]);
+            computer.SetActive(estados[5]);
+            car.SetActive(estados[6]);
+            vending.SetActive(estados[7]);
+            thirdCaracter.SetActive(estados[8]);
+
+        }
+
+    }
 }

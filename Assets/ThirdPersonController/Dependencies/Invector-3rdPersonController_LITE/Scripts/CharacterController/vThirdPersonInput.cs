@@ -32,7 +32,6 @@ namespace Invector.vCharacterController
             {
                 Destroy(Detachables);
                 Destroy(GetComponent<vThirdPersonController>());
-                Destroy(GetComponent<CambioO>());
                 Destroy(this);
             }
             else
