@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class PropLife : MonoBehaviour
+public class PropLife : MonoBehaviourPunCallbacks
 {
     public int VidaProp = 10;
     // Start is called before the first frame update
@@ -30,8 +31,8 @@ public class PropLife : MonoBehaviour
 
     }
 
-    
-    void HitByRay()
+    [PunRPC]
+    private void Hit()
     {
         VidaProp--;
     }
