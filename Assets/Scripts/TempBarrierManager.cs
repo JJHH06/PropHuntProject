@@ -15,7 +15,7 @@ public class TempBarrierManager : MonoBehaviour
     private void FixedUpdate()
     {
         tiempoBarrera += Time.fixedDeltaTime;
-        if(tiempoBarrera>= 15)
+        if(tiempoBarrera>= 25)
         {
             if (barrera)
             {
