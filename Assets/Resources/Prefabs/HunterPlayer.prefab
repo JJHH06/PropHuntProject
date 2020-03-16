@@ -117,7 +117,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 327378243521861582}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6512840950227309701}
+        m_MethodName: Regresar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2734124569541156279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,6 +2065,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4491578962956924613}
   - component: {fileID: 1574124876558662236}
+  - component: {fileID: 1657358333733816819}
+  - component: {fileID: 6512840950227309701}
   m_Layer: 0
   m_Name: Menus
   m_TagString: Untagged
@@ -2090,3 +2103,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 5071980521469389616}
   camara: {fileID: 5762971159915892778}
+--- !u!114 &1657358333733816819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079947181277939014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf3e2a034f545248961ed597c86bbf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 0}
+  PInicio: {fileID: 2369192804935143096}
+  PNewGame: {fileID: 0}
+  PRoomJoining: {fileID: 0}
+  PEnPartida: {fileID: 0}
+  PSetNickName: {fileID: 0}
+  PPropController: {fileID: 0}
+  PHunterController: {fileID: 0}
+  PInstructions: {fileID: 0}
+  TfSetNickName: {fileID: 0}
+--- !u!114 &6512840950227309701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079947181277939014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cd983ff03888943932f27d1c63f13a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
