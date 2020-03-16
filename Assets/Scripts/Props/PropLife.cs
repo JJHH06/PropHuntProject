@@ -17,6 +17,8 @@ public class PropLife : MonoBehaviour
         if (VidaProp <= 0)
         {
             //Aqui iria lo que pasa cuando gane el hunter
+            Destroy(gameObject);
+
         }
     }
     private void OnCollisionEnter(Collision collision)
