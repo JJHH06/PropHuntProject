@@ -25,4 +25,9 @@ public class PropCollision : MonoBehaviour
         }
 
     }
+
+    void HitByRay()
+    {
+        lifeManager.VidaProp--;
+    }
 }

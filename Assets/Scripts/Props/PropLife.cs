@@ -30,4 +30,11 @@ public class PropLife : MonoBehaviour
 
     }
 
+    
+    void HitByRay()
+    {
+        VidaProp--;
+    }
+
+
 }
