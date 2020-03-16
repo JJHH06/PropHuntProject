@@ -42,9 +42,7 @@ public class PropLife : MonoBehaviourPunCallbacks
     {
         if (!isHunter)
         {
-            life--;
-            if (life <= 0)
-                Destroy(gameObject);
+            GetComponent<LP>().getHit();
         }
 
     }
