@@ -5913,7 +5913,7 @@ MonoBehaviour:
     Props. Los Hunters, como su nombre lo dice, tienen que dar cazar a los props.
     En cambio los props tienen como tarea sobrevivir. Para esto, los props tienen
     la habilidad de convertirse en objetos, con la finalidad de despistar al Hunter
-    y sobrevivir. La partida finaliza hasta que el prop muera."
+    y sobrevivir. La partida finaliza hasta que el prop muera o se acabe el tiempo."
 --- !u!222 &1727972902
 CanvasRenderer:
   m_ObjectHideFlags: 0
